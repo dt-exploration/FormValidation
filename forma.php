@@ -19,7 +19,7 @@
   Website: <input type="text" name="website" value="<?php ?>">
   <span class="error"><?php ?></span>
   <br><br>
-  Comment: <textarea name="comment" rows="5" cols="40"><?php?></textarea>
+  Comment: <textarea name="comment" rows="5" cols="40"><?php ?></textarea>
   <br><br>
   Gender:
   <input type="radio" name="gender" value="female">Female
@@ -32,6 +32,8 @@
 
 
 <?php
+$name=$email=$website=$comment="";
+
 $email="d@gmail.com";
 var_dump(filter_var($email,FILTER_VALIDATE_EMAIL));
 
@@ -41,7 +43,7 @@ var_dump(filter_var($url,FILTER_VALIDATE_URL));
 $ip="133.111.111.111";
 var_dump(filter_var($ip,FILTER_VALIDATE_IP));
 
-
+'/^[A-Z\d]+$/i'
 
 
  ?>
