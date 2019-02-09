@@ -10,7 +10,7 @@
 <?php
 $nameErr=$emailErr=$websiteErr=$genderErr="";
 
-if($_SERVER["REQUEST_METHOD"]=="POST") {
+if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 function test_input($data) {
@@ -24,7 +24,7 @@ function test_input($data) {
 
 //Name
 ////////////////////////////////////////////////////////////////////
-if(empty($_POST["name"])) {
+if (empty($_POST["name"])) {
     $nameErr="Name is required !";
     $name="WRONG";
 } else {
@@ -32,8 +32,6 @@ if(empty($_POST["name"])) {
 
     if(!preg_match("/^[A-Z\d\s]+$/i", $name )) {
         $nameErr="Special characters not allowed !";
-    } else {
-        $name=$_POST["name"];
     }
   }
 ////////////////////////////////////////////////////////////////////
@@ -63,6 +61,7 @@ if(empty($_POST["website"])) {
   $website="WRONG";
 } else {
   $website=test_input($_POST["website"]);
+
   if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]
              *[-a-z0-9+&@#\/%=~_|]/i",$website)) {
 
