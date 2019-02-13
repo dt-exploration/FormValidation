@@ -8,15 +8,16 @@
 <body>
 
 <?php
-$nameErr=$emailErr=$websiteErr=$genderErr="";
+
+$nameErr = $emailErr = $websiteErr = $genderErr= "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 function test_input($data) {
-    $data=trim($data);
-    $data=stripslashes($data);
-    $data=htmlspecialchars($data);
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
 
     return $data;
 }
@@ -25,13 +26,13 @@ function test_input($data) {
 //Name
 ////////////////////////////////////////////////////////////////////
 if (empty($_POST["name"])) {
-    $nameErr="Name is required !";
-    $name="WRONG";
+    $nameErr = "Name is required !";
+    $name = "WRONG";
 } else {
-    $name=test_input($_POST["name"]);
+    $name = test_input($_POST["name"]);
 
-    if(!preg_match("/^[A-Z\d\s]+$/i", $name )) {
-        $nameErr="Special characters not allowed !";
+    if (!preg_match("/^[A-Z\d\s]+$/i", $name )) {
+        $nameErr = "Special characters not allowed !";
     }
   }
 ////////////////////////////////////////////////////////////////////
@@ -40,14 +41,14 @@ if (empty($_POST["name"])) {
 
 //E mail
 ////////////////////////////////////////////////////////////////////
-if(empty($_POST["email"])){
-    $emailErr="E-mail is required !";
-    $email="WRONG";
+if (empty($_POST["email"])) {
+    $emailErr = "E-mail is required !";
+    $email = "WRONG";
 } else {
-    $email=test_input($_POST["email"]);
+    $email = test_input($_POST["email"]);
 
-    if (filter_var($email,FILTER_VALIDATE_EMAIL)==false) {
-        $emailErr="Invalid E-mail ! ";
+    if (filter_var($email,FILTER_VALIDATE_EMAIL) == false) {
+        $emailErr = "Invalid E-mail ! ";
     }
 }
 /////////////////////////////////////////////////////////////////////
@@ -56,16 +57,16 @@ if(empty($_POST["email"])){
 
 //Website
 /////////////////////////////////////////////////////////////////////
-if(empty($_POST["website"])) {
-  $websiteErr="";
-  $website="WRONG";
+if (empty($_POST["website"])) {
+  $websiteErr = "";
+  $website = "WRONG";
 } else {
-  $website=test_input($_POST["website"]);
+  $website = test_input($_POST["website"]);
 
   if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]
              *[-a-z0-9+&@#\/%=~_|]/i",$website)) {
 
-      $websiteErr="Invalid website !";
+      $websiteErr = "Invalid website !";
   }
 }
 /////////////////////////////////////////////////////////////////////
@@ -74,17 +75,17 @@ if(empty($_POST["website"])) {
 
 //Comment
 /////////////////////////////////////////////////////////////////////
-$comment=test_input($_POST["comment"]);
+$comment = test_input($_POST["comment"]);
 /////////////////////////////////////////////////////////////////////
 
 
 
 //Gender
 ////////////////////////////////////////////////////////////////////
-if(empty($_POST["gender"])) {
-    $genderErr="Gender is required !";
+if (empty($_POST["gender"])) {
+    $genderErr = "Gender is required !";
 } else {
-    $gender=test_input($_POST["gender"]);
+    $gender = test_input($_POST["gender"]);
 }
 ////////////////////////////////////////////////////////////////////
 
