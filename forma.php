@@ -11,7 +11,7 @@
 
 $nameErr = $emailErr = $websiteErr = $genderErr= "";
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 function test_input($data) {
@@ -21,7 +21,6 @@ function test_input($data) {
 
     return $data;
 }
-
 
 //Name
 ////////////////////////////////////////////////////////////////////
@@ -36,8 +35,6 @@ if (empty($_POST["name"])) {
     }
   }
 ////////////////////////////////////////////////////////////////////
-
-
 
 //E mail
 ////////////////////////////////////////////////////////////////////
